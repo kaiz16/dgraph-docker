@@ -1,7 +1,8 @@
 const { default: axios } = require("axios");
+const process = require("process");
 const fs = require("fs");
-const DGRAPH_ADMIN_ENDPOINT = "http://127.0.0.1:8080/admin";
-const FILE = "./schema.graphql";
+const DGRAPH_ADMIN_ENDPOINT = process.argv[2];
+const FILE = process.argv[3];
 const deploy = async () => {
   const query = JSON.stringify({
     query: `

@@ -1,4 +1,4 @@
-Guide to migrate from dgraph cloud to docker
+### Migrate from Dgraph Cloud to Docker
 
 - Export data from cloud and extract the gz files
 - Start the containers `docker-compose up`
@@ -9,5 +9,6 @@ Guide to migrate from dgraph cloud to docker
   ```
 - Deploy the schema
   ```
-  node deploySchema.js
+  npm install
+  node deploy-schema.js http://127.0.0.1:8080/admin schema_production.graphql
   ```
