@@ -32,7 +32,7 @@ services:
       - 7080 # grpc port
       - 9080 # grpc port
     restart: on-failure
-    command: dgraph alpha --my=127.0.0.1:7080 --zero=127.0.0.1:5080 --security "whitelist=0.0.0.0/0; token=123456" --graphql "debug=true; extensions=true; introspection=true; lambda-url=http://127.0.0.1:8686/graphql-worker; poll-interval=1s;"
+    command: dgraph alpha --my=127.0.0.1:7080 --zero=127.0.0.1:5080 --security "whitelist=0.0.0.0/0; token=TOP_SECRET" --graphql "debug=true; extensions=true; introspection=true; lambda-url=http://127.0.0.1:8686/graphql-worker; poll-interval=1s;"
   lambda:
     container_name: "dgraph-lambda"
     image: dgraph/dgraph-lambda:latest

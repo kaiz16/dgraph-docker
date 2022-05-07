@@ -22,6 +22,7 @@ const deploy = async () => {
   const { data } = await axios.post(DGRAPH_ADMIN_ENDPOINT, query, {
     headers: {
       "content-type": "application/json",
+      "X-Dgraph-AuthToken": process.argv[4],
     },
   });
   console.log(data);
