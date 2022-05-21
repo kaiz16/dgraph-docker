@@ -1,0 +1,26 @@
+version: "3.6"
+services:
+  dgraph:
+    container_name: "dgraph"
+    image: dgraph/standalone:latest
+    network_mode: host
+    environment:
+      DGRAPH_ALPHA_GRAPHQL: "lambda-url=http://localhost:8686/graphql-worker"
+    ports:
+      - "8080"
+    volumes:
+      - dgraph:/dgraph
+
+  dgraph_lambda:
+    container_name: "dgraph_lambda"
+    image: dgraph/dgraph-lambda:latest
+    network_mode: host
+    ports:
+      - "8686"
+    environment:
+      DGRAPH_URL: http://localhost:8080
+    volumes:
+      - ./gql/dist/script.js:/app/script/script.js:ro
+
+volumes:
+  dgraph: {}
