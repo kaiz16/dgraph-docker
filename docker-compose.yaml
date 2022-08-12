@@ -41,6 +41,7 @@ services:
       - "8686"
     environment:
       DGRAPH_URL: http://127.0.0.1:8080
+      MAX_MEMORY_LIMIT: "2048M"
     volumes:
       - ./gql/dist/script.js:/app/script/script.js:ro
   ratel:
